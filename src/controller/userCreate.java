@@ -28,6 +28,10 @@ public class userCreate {
         this.rol = rol;
     }
 
+    public userCreate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getNombresYapellidos() {
         return nombresYapellidos;
     }

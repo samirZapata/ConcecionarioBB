@@ -8,8 +8,9 @@ public class login extends javax.swing.JPanel {
 
     private main main;
     public login(main main) {
-        initComponents();
         this.main = main;
+        initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")

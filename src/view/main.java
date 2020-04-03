@@ -1,16 +1,70 @@
 package view;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author yonier
  */
 public class main extends javax.swing.JFrame {
 
+    private initPrincipal principal;
+    private Registrarse registro;
     private login login;
+
     public main() {
-        initComponents();
+        setUndecorated(true);
+        setName("Principal");
+        setResizable(true);
+        pack();
+        setIconImage(getIconImage());
+        setLocationRelativeTo(null);
+        iniciar();
     }
 
+    private void iniciar() {
+        principal = new initPrincipal(this);
+        principal.setVisible(true);
+        add(principal);
+        pack();
+        setLocationRelativeTo(null);
+    }
+
+    protected void irinitPrincipal(JPanel jPanel) {
+        remove(jPanel);
+        principal = new initPrincipal(this);
+        principal.setVisible(true);
+        add(principal);
+        pack();
+        setLocationRelativeTo(null);
+    }
+
+    protected void redirectinitPrincipal(JPanel jPanel) {
+        remove(jPanel);
+        principal = new initPrincipal(this);
+        principal.setVisible(true);
+        add(principal);
+        pack();
+        setLocationRelativeTo(null);
+    }
+    
+     protected void irRegistrarse(JPanel jPanel) {
+        remove(jPanel);
+        registro = new Registrarse(this);
+        registro.setVisible(true);
+        add(registro);
+        pack();
+        setLocationRelativeTo(null);
+    }
+     
+     protected void irlogin(JPanel jPanel) {
+        remove(jPanel);
+        login = new login(this);
+        login.setVisible(true);
+        add(login);
+        pack();
+        setLocationRelativeTo(null);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/controller/userCreate.java</file>
-            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/model/registro.java</file>
-            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/view/Registro.java</file>
-            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/model/Conexion.java</file>
             <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/view/main.java</file>
-            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/controller/Listas.java</file>
+            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/view/login.java</file>
+            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/view/Registrarse.java</file>
+            <file>file:/home/yonier/NetBeansProjects/Concesionario1.0/src/view/initPrincipal.java</file>
         </group>
     </open-files>
 </project-private>
