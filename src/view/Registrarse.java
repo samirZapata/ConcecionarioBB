@@ -1,5 +1,6 @@
 package view;
 
+import controller.Listas;
 import controller.userCreate;
 import javax.swing.JOptionPane;
 import model.registro;
@@ -12,7 +13,7 @@ public class Registrarse extends javax.swing.JPanel {
 
     private main main;
     registro reg = new registro();
-
+    Listas l = new Listas();
     public Registrarse(main main) {
         this.main = main;
         initComponents();
@@ -74,6 +75,7 @@ public class Registrarse extends javax.swing.JPanel {
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         agregar();
+        //l.imprimir(mos);
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
     public void agregar() {
@@ -90,6 +92,8 @@ public class Registrarse extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor llena todos los campos!");
         }
         boolean persona = reg.registrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass);
+        //Listas<userCreate> mos = reg.mostrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass);
+       // mos.imprimir();
         if (persona != false) {
             JOptionPane.showMessageDialog(null, "Registro Exitoso!!");
             txtNombreYapellido.setText(null);

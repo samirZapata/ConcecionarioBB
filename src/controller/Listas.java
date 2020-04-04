@@ -21,7 +21,7 @@ public class Listas<T> {
         /**
          *
          * @param dato
-         * @param index
+         * @param indice
          */
         //inicializo objetos
         public elementos(T dato, int indice) {
@@ -32,7 +32,7 @@ public class Listas<T> {
 
         /**
          *
-         * @param index
+         * @param indice
          */
         public elementos(int indice) {
             this.dato = null;
@@ -98,13 +98,16 @@ public class Listas<T> {
         }
         return tamanio;
     }
-
+    /**
+     *Metodo Imprimir 
+     * @return salida
+     */
     public String imprimir() {
         String salida = "";
 
         if (!estaVacia()) {
             elementos<T> temp = this.inicio;
-
+            
             for (int i = 0; i < this.tamanio(); i++) {
                 salida += (temp.getIndice() + ":" + temp.getDato() + "\n");
                 temp = temp.getSiguiente();
@@ -114,6 +117,7 @@ public class Listas<T> {
             }
         }
         return salida;
+        //return null;
     }
 
     public void agregar(T dato) {
