@@ -1,9 +1,11 @@
 package view;
 
 import controller.Listas;
+import controller.logicaMostrar;
 import controller.userCreate;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import model.registro;
 
 /**
  *
@@ -11,32 +13,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class mostrarUser extends javax.swing.JPanel {
 
+    logicaMostrar m = new logicaMostrar();
+    registro r = new registro();
+
     public mostrarUser() {
         initComponents();
+
     }
 
-    private void mostrar() {
-        //Listas<userCreate> lista = new Listas<>();
-        ArrayList<Object> lista = new ArrayList<>();
+    public void mostrar(String nombresYapellidos) {
+        Listas<userCreate> lista = r.mostrar(nombresYapellidos);
         DefaultTableModel modelo = new DefaultTableModel();
-
-        lista.add("Nombres & Apellidos");
-        lista.add("Direccion");
-        lista.add("Telefono");
-        lista.add("Email");
-        lista.add("Cedula");
-        lista.add("Ciudad");
-        lista.add("Usuario");
-        lista.add("Contraseña");
-        lista.forEach((columna) -> {
-            modelo.addColumn(columna);
-        });
+        modelo.addColumn("Nombres & Apellidos");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Email");
+        modelo.addColumn("Cedula");
+        modelo.addColumn("Ciudad");
+        modelo.addColumn("Usuario");
+        modelo.addColumn("Contraseña");
         tabla.setModel(modelo);
-        
-        Listas<userCreate[]> d = new Listas<>();
-       Object[] inf= new Object[]{d.imprimir()};
-       d.agregar((userCreate[]) inf);
-       
+        if (lista != null) {
+            try {
+                for (int i = 0; i < lista.tamanio(); i++) {
+                    
+                }
+            } catch (Exception e) {
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -45,6 +49,8 @@ public class mostrarUser extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        jTextFieldRound1 = new jtextfieldround.JTextFieldRound();
+        btn_Mostrar = new LIB.FSButtonMD();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,11 +72,17 @@ public class mostrarUser extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tabla);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 235, 813, 198));
+        add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+
+        btn_Mostrar.setText("Mostrar");
+        add(btn_Mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 70, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private LIB.FSButtonMD btn_Mostrar;
     private javax.swing.JScrollPane jScrollPane1;
+    private jtextfieldround.JTextFieldRound jTextFieldRound1;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

@@ -74,20 +74,13 @@ public class registro {
         return null;
     }
 
-    public Listas<userCreate> mostrar(String nombresYapellidos, String direccion, String telefono, String email, String cedula, String ciudad, String user, String pass) {
+    public Listas<userCreate> mostrar(String nombresYapellidos) {
         try {
 
             cn = c.getConnection();
             sql = "SELECT * FROM Registrar";
             ps = cn.prepareStatement(sql);
             ps.setString(1, nombresYapellidos);
-            ps.setString(2, direccion);
-            ps.setString(3, telefono);
-            ps.setString(4, email);
-            ps.setString(5, cedula);
-            ps.setString(6, ciudad);
-            ps.setString(7, user);
-            ps.setString(8, pass);
             rs = ps.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
@@ -108,7 +101,6 @@ public class registro {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error inesperado, estamos trabajando en ello!");
             System.err.format("SQL State: %s\n%s ", e.getSQLState(), e.getMessage());
-
         }
         return null;
     }

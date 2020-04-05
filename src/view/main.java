@@ -8,7 +8,7 @@ import javax.swing.JPanel;
  */
 public class main extends javax.swing.JFrame {
 
-    private initPrincipal principal;
+    private SplashCreen principal;
     private Registrarse registro;
     private login login;
 
@@ -23,25 +23,25 @@ public class main extends javax.swing.JFrame {
     }
 
     private void iniciar() {
-        principal = new initPrincipal(this);
+        principal = new SplashCreen(this);
+        principal.setVisible(true);
+        add(principal);
+        pack();
+        setLocationRelativeTo(null);
+    }
+    
+    protected void irSplashCreen(JPanel jPanel) {
+        remove(jPanel);
+        principal = new SplashCreen(this);
         principal.setVisible(true);
         add(principal);
         pack();
         setLocationRelativeTo(null);
     }
 
-    protected void irinitPrincipal(JPanel jPanel) {
+    protected void redirectSplashCreen(JPanel jPanel) {
         remove(jPanel);
-        principal = new initPrincipal(this);
-        principal.setVisible(true);
-        add(principal);
-        pack();
-        setLocationRelativeTo(null);
-    }
-
-    protected void redirectinitPrincipal(JPanel jPanel) {
-        remove(jPanel);
-        principal = new initPrincipal(this);
+        principal = new SplashCreen(this);
         principal.setVisible(true);
         add(principal);
         pack();
