@@ -37,6 +37,8 @@ public class Registrarse extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        txtRol = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,6 +78,12 @@ public class Registrarse extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, -1, -1));
+        add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 30, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Rol");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registro.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 770, 440));
@@ -105,11 +113,11 @@ public class Registrarse extends javax.swing.JPanel {
         String ciudad = txtCiudad.getText();
         String user = txtUser.getText();
         String pass = txtPass.getText();
-        
+        String rol = txtRol.getText();
         if (nombreYapellido.equals("") || direccion.equals("") || telefono.equals("") || email.equals("") || cedula.equals("") || ciudad.equals("") || user.equals("") || pass.equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor llena todos los campos!");
         }
-        boolean persona = reg.registrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass);
+        boolean persona = reg.registrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass, rol);
         //Listas<userCreate> mos = reg.mostrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass);
         // mos.imprimir();
         if (persona != false) {
@@ -122,7 +130,8 @@ public class Registrarse extends javax.swing.JPanel {
             txtCiudad.setText(null);
             txtUser.setText(null);
             txtPass.setText(null);
-            main.irlogin(this);
+            txtRol.setText(null);
+            //main.irlogin(this);
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear la cuenta, estamos trabajando el ello...!");
         }
@@ -134,12 +143,14 @@ public class Registrarse extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombreYapellido;
     private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtRol;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

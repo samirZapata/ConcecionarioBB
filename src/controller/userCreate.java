@@ -8,7 +8,7 @@ public class userCreate {
 
     private String nombresYapellidos;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String email;
     private int cedula;
     private String ciudad;
@@ -27,8 +27,7 @@ public class userCreate {
      * @param user
      * @param pass
      */
-    
-    public userCreate(String nombresYapellidos, String direccion, int telefono, String email, int cedula, String ciudad, String user, String pass) {
+    public userCreate(String nombresYapellidos, String direccion, String telefono, String email, int cedula, String ciudad, String user, String pass, int rol) {
         this.nombresYapellidos = nombresYapellidos;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -37,9 +36,8 @@ public class userCreate {
         this.ciudad = ciudad;
         this.user = user;
         this.pass = pass;
+        this.rol = rol;
     }
-
-
 
     public String getNombresYapellidos() {
         return nombresYapellidos;
@@ -57,11 +55,11 @@ public class userCreate {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -105,17 +103,22 @@ public class userCreate {
         this.pass = pass;
     }
 
-    /*
     public int getRol() {
         return rol;
     }
 
     public void setRol(int rol) {
         this.rol = rol;
-    }*/
+    }
+
+    public userCreate() {
+
+    }
+
     @Override
     public String toString() {
-        return "userCreate{" + "nombresYapellidos=" + nombresYapellidos + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", cedula=" + cedula + ", ciudad=" + ciudad + ", user=" + user + ", pass=" + pass + '}';
+        return "userCreate{" + "nombresYapellidos=" + nombresYapellidos + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", cedula=" + cedula + ", ciudad=" + ciudad + ", user=" + user + ", pass=" + pass + ", rol=" + rol + '}';
     }
+    
 
 }

@@ -54,7 +54,7 @@ public final class mostrarUser extends javax.swing.JPanel {
         tabla.setModel(model);
         Listas<userCreate> dato = mensajero.mostrar();
         if (dato != null) {
-            Object[] filas = new Object[8];
+            Object[] filas = new Object[9];
             try {
                 for (int i = 0; i < dato.tamanio(); i++) {
                     filas[0] = (dato.obtener(i).getNombresYapellidos());
@@ -65,6 +65,7 @@ public final class mostrarUser extends javax.swing.JPanel {
                     filas[5] = (dato.obtener(i).getCiudad());
                     filas[6] = (dato.obtener(i).getUser());
                     filas[7] = (dato.obtener(i).getPass());
+                    filas[8] = (dato.obtener(i).getRol());
                     model.addRow(filas);
                 }
             } catch (Exception e) {
