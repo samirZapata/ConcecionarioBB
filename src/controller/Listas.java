@@ -98,8 +98,10 @@ public class Listas<T> {
         }
         return tamanio;
     }
+
     /**
-     *Metodo Imprimir 
+     * Metodo Imprimir
+     *
      * @return salida
      */
     public String imprimir() {
@@ -107,7 +109,7 @@ public class Listas<T> {
 
         if (!estaVacia()) {
             elementos<T> temp = this.inicio;
-            
+
             for (int i = 0; i < this.tamanio(); i++) {
                 salida += (temp.getIndice() + ":" + temp.getDato() + "\n");
                 temp = temp.getSiguiente();
@@ -134,7 +136,7 @@ public class Listas<T> {
     public T base() throws Exception {
         if (!estaVacia()) {
             elementos<T> tem = this.inicio;
-            
+
             for (int i = 0; i < tamanio(); i++) {
                 if (tem.getSiguiente() != null) {
                     tem = tem.getSiguiente();
@@ -145,4 +147,25 @@ public class Listas<T> {
             throw new Exception("Pila Vacia");
         }
     }
+
+    public T obtener(int indice) throws Exception {
+        if (!estaVacia()) {
+            elementos<T> element = null;
+            elementos<T> temp = this.inicio;
+            for (int i = 0; i < this.tamanio(); i++) {
+                
+                if (indice == temp.getIndice()) {
+                    element = temp;
+                }
+                temp = temp.getSiguiente();
+            }
+            if (element == null) {
+                throw new Exception("Index fuera de rango");
+            }
+            return (T) element.getDato();
+        } else {
+            throw new Exception("La lista esta vacia!");
+        }
+    }
+
 }

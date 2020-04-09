@@ -1,5 +1,6 @@
 package view;
 
+import controller.userCreate;
 import javax.swing.JPanel;
 
 /**
@@ -11,6 +12,9 @@ public class main extends javax.swing.JFrame {
     private SplashCreen principal;
     private Registrarse registro;
     private login login;
+    private mostrarUser mostrar;
+    private userCreate dt;
+    private menu menu;
 
     public main() {
         setUndecorated(true);
@@ -19,17 +23,17 @@ public class main extends javax.swing.JFrame {
         pack();
         setIconImage(getIconImage());
         setLocationRelativeTo(null);
-        iniciar();
+        iniciar(dt);
     }
 
-    private void iniciar() {
+    private void iniciar(userCreate dt) {
         principal = new SplashCreen(this);
         principal.setVisible(true);
         add(principal);
         pack();
         setLocationRelativeTo(null);
     }
-    
+
     protected void irSplashCreen(JPanel jPanel) {
         remove(jPanel);
         principal = new SplashCreen(this);
@@ -47,8 +51,8 @@ public class main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }
-    
-     protected void irRegistrarse(JPanel jPanel) {
+
+    protected void irRegistrarse(JPanel jPanel) {
         remove(jPanel);
         registro = new Registrarse(this);
         registro.setVisible(true);
@@ -56,8 +60,8 @@ public class main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }
-     
-     protected void irlogin(JPanel jPanel) {
+
+    protected void irlogin(JPanel jPanel) {
         remove(jPanel);
         login = new login(this);
         login.setVisible(true);
@@ -65,7 +69,25 @@ public class main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }
-     
+
+    protected void irmostrarUser(JPanel jPanel) {
+        remove(jPanel);
+        mostrar = new mostrarUser(this);
+        mostrar.setVisible(true);
+        add(mostrar);
+        pack();
+        setLocationRelativeTo(null);
+    }
+
+    protected void irmenu(JPanel jPanel) {
+        remove(jPanel);
+        menu = new menu(this);
+        menu.setVisible(true);
+        add(menu);
+        pack();
+        setLocationRelativeTo(null);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

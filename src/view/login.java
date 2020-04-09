@@ -1,5 +1,7 @@
 package view;
 
+import controller.userCreate;
+
 /**
  *
  * @author yonier
@@ -7,10 +9,13 @@ package view;
 public class login extends javax.swing.JPanel {
 
     private main main;
+    private userCreate dt;
+
     public login(main main) {
         this.main = main;
+        //this.dt = dt;
         initComponents();
-        
+
     }
 
     @SuppressWarnings("unchecked")

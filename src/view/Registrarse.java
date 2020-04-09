@@ -12,10 +12,13 @@ import model.registro;
 public class Registrarse extends javax.swing.JPanel {
 
     private main main;
+    private userCreate dt;
     registro reg = new registro();
     Listas l = new Listas();
+
     public Registrarse(main main) {
         this.main = main;
+       // this.dt = dt;
         initComponents();
     }
 
@@ -33,6 +36,7 @@ public class Registrarse extends javax.swing.JPanel {
         txtPass = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -65,6 +69,14 @@ public class Registrarse extends javax.swing.JPanel {
         });
         add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 100, 20));
 
+        jButton1.setText("mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registro.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 770, 440));
     }// </editor-fold>//GEN-END:initComponents
@@ -76,7 +88,13 @@ public class Registrarse extends javax.swing.JPanel {
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         agregar();
         //l.imprimir(mos);
+       // main.irmostrarUser(this);
+       main.irmenu(this);
     }//GEN-LAST:event_btnRegistrarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        main.irmostrarUser(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void agregar() {
         String nombreYapellido = txtNombreYapellido.getText();
@@ -87,13 +105,13 @@ public class Registrarse extends javax.swing.JPanel {
         String ciudad = txtCiudad.getText();
         String user = txtUser.getText();
         String pass = txtPass.getText();
-
+        
         if (nombreYapellido.equals("") || direccion.equals("") || telefono.equals("") || email.equals("") || cedula.equals("") || ciudad.equals("") || user.equals("") || pass.equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor llena todos los campos!");
         }
         boolean persona = reg.registrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass);
         //Listas<userCreate> mos = reg.mostrar(nombreYapellido, direccion, telefono, email, cedula, ciudad, user, pass);
-       // mos.imprimir();
+        // mos.imprimir();
         if (persona != false) {
             JOptionPane.showMessageDialog(null, "Registro Exitoso!!");
             txtNombreYapellido.setText(null);
@@ -107,13 +125,13 @@ public class Registrarse extends javax.swing.JPanel {
             main.irlogin(this);
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear la cuenta, estamos trabajando el ello...!");
-
         }
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnRegistrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtCedula;

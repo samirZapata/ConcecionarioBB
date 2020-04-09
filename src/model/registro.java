@@ -22,6 +22,15 @@ public class registro {
     Connection cn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    private userCreate usuario;
+
+    public registro() {
+        this.lista = new Listas<>();
+    }
+
+    public Listas<userCreate> listaUsuarios() {
+        return lista;
+    }
 
     public boolean registrar(String nombresYapellidos, String direccion, String telefono, String email, String cedula, String ciudad, String user, String pass) {
 
@@ -74,27 +83,33 @@ public class registro {
         return null;
     }
 
-    public Listas<userCreate> mostrar(String nombresYapellidos) {
+    /**
+     * Mostrar usuarios method
+     *
+     * @return
+     */
+    public Listas<userCreate> mostrar() {
         try {
 
             cn = c.getConnection();
-            sql = "SELECT * FROM Registrar";
+            sql = "SELECT * FROM Registrar WHERE NombresyApellidos=?";
             ps = cn.prepareStatement(sql);
-            ps.setString(1, nombresYapellidos);
+            //ps.setString(1, NombresyApellidos);
             rs = ps.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
                     //Obtengo los datos y los asigno a los nodos
-                    userCreate data = new userCreate();
-                    data.setNombresYapellidos(rs.getString(1));
-                    data.setDireccion(rs.getString(2));
-                    data.setTelefono(rs.getInt(3));
-                    data.setEmail(rs.getString(4));
-                    data.setCedula(rs.getInt(5));
-                    data.setCiudad(rs.getString(6));
-                    data.setUser(rs.getString(7));
-                    data.setPass(rs.getString(8));
-                    lista.agregar(data);
+
+                   // usuario = new userCreate();
+                    usuario.setNombresYapellidos(rs.getString(1));
+                    usuario.setDireccion(rs.getString(2));
+                    usuario.setTelefono(rs.getInt(3));
+                    usuario.setEmail(rs.getString(4));
+                    usuario.setCedula(rs.getInt(5));
+                    usuario.setCiudad(rs.getString(6));
+                    usuario.setUser(rs.getString(7));
+                    usuario.setPass(rs.getString(8));
+                    lista.agregar(usuario);
                 }
             }
             return lista;

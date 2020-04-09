@@ -16,7 +16,19 @@ public class userCreate {
     private String pass;
     private int rol;
 
-    public userCreate(String nombresYapellidos, String direccion, int telefono, String email, int cedula, String ciudad, String user, String pass, int rol) {
+    /**
+     *
+     * @param nombresYapellidos
+     * @param direccion
+     * @param telefono
+     * @param email
+     * @param cedula
+     * @param ciudad
+     * @param user
+     * @param pass
+     */
+    
+    public userCreate(String nombresYapellidos, String direccion, int telefono, String email, int cedula, String ciudad, String user, String pass) {
         this.nombresYapellidos = nombresYapellidos;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -25,12 +37,9 @@ public class userCreate {
         this.ciudad = ciudad;
         this.user = user;
         this.pass = pass;
-        this.rol = rol;
     }
 
-    public userCreate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     public String getNombresYapellidos() {
         return nombresYapellidos;
@@ -96,17 +105,17 @@ public class userCreate {
         this.pass = pass;
     }
 
+    /*
     public int getRol() {
         return rol;
     }
 
     public void setRol(int rol) {
         this.rol = rol;
-    }
-
+    }*/
     @Override
     public String toString() {
-        return "userCreate{" + "nombresYapellidos=" + nombresYapellidos + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", cedula=" + cedula + ", ciudad=" + ciudad + ", user=" + user + ", pass=" + pass + ", rol=" + rol + '}';
+        return "userCreate{" + "nombresYapellidos=" + nombresYapellidos + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", cedula=" + cedula + ", ciudad=" + ciudad + ", user=" + user + ", pass=" + pass + '}';
     }
 
 }
