@@ -2,7 +2,12 @@ package view;
 
 import controller.Listas;
 import controller.userCreate;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import lib.TextPrompt;
 import model.registro;
 
 /**
@@ -15,41 +20,87 @@ public class Registrarse extends javax.swing.JPanel {
     private userCreate dt;
     registro reg = new registro();
     Listas l = new Listas();
-
-    public Registrarse(main main) {
+    
+    public Registrarse(main main, userCreate dt) {
         this.main = main;
-       // this.dt = dt;
+        this.dt = dt;
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        this.setBackground(new Color(0, 0, 0, 0));
+        //JPanel.setBackground(new Color(0,0,0,0));
+        placeholders();
+    }
+
+    public void placeholders() {
+        TextPrompt nombre = new TextPrompt(" Nombres & Apellidos", txtNombreYapellido);
+        TextPrompt direccion = new TextPrompt(" Direccion", txtDireccion);
+        TextPrompt telefono = new TextPrompt(" Telefono", txtTelefono);
+        TextPrompt email = new TextPrompt(" Email", txtEmail);
+        TextPrompt cedula = new TextPrompt(" Cedula", txtCedula);
+        TextPrompt ciudad = new TextPrompt(" Ciudad", txtCiudad);
+        TextPrompt user = new TextPrompt(" Usuario", txtUser);
+        TextPrompt pass = new TextPrompt(" Contraseña", txtPass);
+        TextPrompt rol = new TextPrompt(" Rol", txtRol);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNombreYapellido = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
-        txtCedula = new javax.swing.JTextField();
-        txtUser = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtCiudad = new javax.swing.JTextField();
-        txtPass = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanelRound1 = new LIB.JPanelRound();
         txtRol = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        txtNombreYapellido = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        txtCiudad = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        btnRegistrar = new keeptoo.KButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtNombreYapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 180, -1));
-        add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 180, -1));
-        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 180, -1));
-        add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 180, -1));
-        add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 170, -1));
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 170, -1));
-        add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 170, -1));
-        add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 170, -1));
+        setBackground(new java.awt.Color(21, 24, 68));
+
+        jPanel1.setBackground(new java.awt.Color(21, 24, 68));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelRound1.setBackground(new java.awt.Color(66, 7, 133));
+        jPanelRound1.setColorPrimario(new java.awt.Color(66, 7, 133));
+        jPanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelRound1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 60, -1));
+        jPanelRound1.add(txtNombreYapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 160, -1));
+        jPanelRound1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 150, -1));
+        jPanelRound1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 160, -1));
+        jPanelRound1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 150, -1));
+        jPanelRound1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, -1));
+        jPanelRound1.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 150, -1));
+        jPanelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 160, -1));
+        jPanelRound1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 150, -1));
+
+        jLabel1.setBackground(new java.awt.Color(53, 197, 221));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(53, 197, 221));
+        jLabel1.setText("Registrarse");
+        jPanelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        btnRegistrar.setText("Aceptar");
+        btnRegistrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnRegistrar.setkHoverForeGround(new java.awt.Color(102, 255, 51));
+        btnRegistrar.setkHoverStartColor(new java.awt.Color(255, 0, 102));
+        btnRegistrar.setkSelectedColor(new java.awt.Color(204, 0, 0));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        jPanelRound1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 150, 40));
+
+        jPanel1.add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 390, 440));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/exit.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -58,51 +109,33 @@ public class Registrarse extends javax.swing.JPanel {
                 jLabel2MouseClicked(evt);
             }
         });
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        btnRegistrar.setFont(new java.awt.Font("Garuda", 0, 18)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setText("Registrarse");
-        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegistrarMouseClicked(evt);
-            }
-        });
-        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 100, 20));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/image (1).png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 460));
 
-        jButton1.setText("mostrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, -1, -1));
-        add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 30, -1));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Rol");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registro.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 770, 440));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         agregar();
-        //l.imprimir(mos);
-       // main.irmostrarUser(this);
-       main.irmenu(this);
-    }//GEN-LAST:event_btnRegistrarMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        main.irmostrarUser(this);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        main.irmenu(this, dt);
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     public void agregar() {
         String nombreYapellido = txtNombreYapellido.getText();
@@ -137,13 +170,15 @@ public class Registrarse extends javax.swing.JPanel {
         }
     }
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnRegistrar;
-    private javax.swing.JButton jButton1;
+    private keeptoo.KButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private LIB.JPanelRound jPanelRound1;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtDireccion;

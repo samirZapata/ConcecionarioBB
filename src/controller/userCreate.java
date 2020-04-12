@@ -15,7 +15,7 @@ public class userCreate {
     private String user;
     private String pass;
     private int rol;
-
+    
     /**
      *
      * @param nombresYapellidos
@@ -26,6 +26,7 @@ public class userCreate {
      * @param ciudad
      * @param user
      * @param pass
+     * @param rol
      */
     public userCreate(String nombresYapellidos, String direccion, String telefono, String email, int cedula, String ciudad, String user, String pass, int rol) {
         this.nombresYapellidos = nombresYapellidos;

@@ -1,6 +1,9 @@
 package view;
 
 import controller.userCreate;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JPanel;
 
 /**
@@ -15,6 +18,8 @@ public class main extends javax.swing.JFrame {
     private mostrarUser mostrar;
     private userCreate dt;
     private menu menu;
+    private modificarUser mod;
+    private Inventario inventario;
 
     public main() {
         setUndecorated(true);
@@ -27,63 +32,81 @@ public class main extends javax.swing.JFrame {
     }
 
     private void iniciar(userCreate dt) {
-        principal = new SplashCreen(this);
+        principal = new SplashCreen(this, dt);
         principal.setVisible(true);
         add(principal);
         pack();
         setLocationRelativeTo(null);
     }
 
-    protected void irSplashCreen(JPanel jPanel) {
+    protected void irSplashCreen(JPanel jPanel, userCreate dt) {
         remove(jPanel);
-        principal = new SplashCreen(this);
+        principal = new SplashCreen(this, dt);
         principal.setVisible(true);
         add(principal);
         pack();
         setLocationRelativeTo(null);
     }
 
-    protected void redirectSplashCreen(JPanel jPanel) {
+    protected void redirectSplashCreen(JPanel jPanel, userCreate dt) {
         remove(jPanel);
-        principal = new SplashCreen(this);
+        principal = new SplashCreen(this, dt);
         principal.setVisible(true);
         add(principal);
         pack();
         setLocationRelativeTo(null);
     }
 
-    protected void irRegistrarse(JPanel jPanel) {
+    protected void irRegistrarse(JPanel jPanel, userCreate dt) {
         remove(jPanel);
-        registro = new Registrarse(this);
+        registro = new Registrarse(this, dt);
         registro.setVisible(true);
         add(registro);
         pack();
         setLocationRelativeTo(null);
+        jPanel.setBackground(new Color(0, 0, 0, 0));
     }
 
-    protected void irlogin(JPanel jPanel) {
+    protected void irlogin(JPanel jPanel, userCreate dt) {
         remove(jPanel);
-        login = new login(this);
+        login = new login(this, dt);
         login.setVisible(true);
         add(login);
         pack();
         setLocationRelativeTo(null);
     }
 
-    protected void irmostrarUser(JPanel jPanel) {
+    protected void irmostrarUser(JPanel jPanel, userCreate dt) {
         remove(jPanel);
-        mostrar = new mostrarUser(this);
+        mostrar = new mostrarUser(this, dt);
         mostrar.setVisible(true);
         add(mostrar);
         pack();
         setLocationRelativeTo(null);
     }
 
-    protected void irmenu(JPanel jPanel) {
+    protected void irmenu(JPanel jPanel, userCreate dt) {
         remove(jPanel);
-        menu = new menu(this);
+        menu = new menu(this, dt);
         menu.setVisible(true);
         add(menu);
+        pack();
+        setLocationRelativeTo(null);
+    }
+
+    protected void irmodificarUser(JPanel jPanel, userCreate dt) {
+        remove(jPanel);
+        mod = new modificarUser(this, dt);
+        mod.setVisible(true);
+        add(mod);
+        pack();
+        setLocationRelativeTo(null);
+    }
+    protected void irInventario(JPanel jPanel, userCreate dt) {
+        remove(jPanel);
+        inventario = new Inventario(this, dt);
+        inventario.setVisible(true);
+        add(inventario);
         pack();
         setLocationRelativeTo(null);
     }
@@ -119,7 +142,7 @@ public class main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -133,6 +156,7 @@ public class main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
         //</editor-fold>
 
         /* Create and display the form */

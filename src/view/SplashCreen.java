@@ -17,9 +17,9 @@ public final class SplashCreen extends javax.swing.JPanel {
     private Thread hilo = null;
     private userCreate dt;
 
-    public SplashCreen(main main) {
+    public SplashCreen(main main, userCreate dt) {
         this.main = main;
-       // this.dt = dt;
+        this.dt = dt;
         initComponents();
         // hilo = new Thread(this);
         animacion();
@@ -36,7 +36,7 @@ public final class SplashCreen extends javax.swing.JPanel {
     }
 
     private void principallogin() {
-        main.irlogin(this);
+        main.irlogin(this, dt);
         //JOptionPane.showMessageDialog(null, "Bienvenido!!");
     }
 
@@ -63,27 +63,27 @@ public final class SplashCreen extends javax.swing.JPanel {
                 cargarFocusGained(evt);
             }
         });
-        add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 110, 120));
+        add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 110, 120));
 
         mensaje.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         mensaje.setForeground(new java.awt.Color(153, 153, 153));
         mensaje.setText("Hay cosas que el dinero no puede comprar");
-        add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 320, 20));
+        add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 320, 20));
 
         labelMensaje.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         labelMensaje.setForeground(new java.awt.Color(153, 153, 153));
         labelMensaje.setText("Para todo lo demas, existe Burnz Buttly");
-        add(labelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 300, 20));
+        add(labelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 300, 20));
 
-        jLabel2.setBackground(new java.awt.Color(24, 30, 90));
+        jLabel2.setBackground(new java.awt.Color(56, 61, 76));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(58, 113, 224));
+        jLabel2.setForeground(new java.awt.Color(104, 115, 158));
         jLabel2.setText("Burnz Buttly");
         jLabel2.setOpaque(true);
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/splashUno.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/spl.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 630, 420));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cargarFocusGained

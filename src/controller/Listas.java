@@ -7,10 +7,41 @@ package controller;
  */
 public class Listas<T> {
 
+    elementos ele = new elementos();
+
     /**
      *
      * @param <T>
      */
+    private T dato;
+    private int indice;
+    private Nodo cabeza;
+    int tamanio;
+
+    public Listas(T dato, int indice) {
+        this.dato = dato;
+        this.indice = indice;
+        cabeza = null;
+        tamanio = 0;
+
+    }
+
+    public T getDato() {
+        return dato;
+    }
+
+    public void setDato(T dato) {
+        this.dato = dato;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+
     private class elementos<T> {
 
         //Declaro variables a utilizar
@@ -84,7 +115,7 @@ public class Listas<T> {
 
     //Metodo para saber el tamaño de la lista
     public int tamanio() {
-        int tamanio = 0;
+
         if (!estaVacia()) {
             tamanio = 1;
             elementos<T> temp = this.inicio;
@@ -133,6 +164,17 @@ public class Listas<T> {
         }
     }
 
+    //MÉTODO EN EL CUAL SE CREA OTRO MÉTODO DE AGREGAR PARA LOS ELEMENTOS QUE LLEGAN DE LA PILA
+    public void agregarIn() {
+        elementos<T> nuevo = new elementos<>(dato, indice);
+        if (inicio == null) {
+            this.inicio = nuevo;
+        } else {
+            nuevo.setSiguiente(this.inicio);
+            this.inicio = nuevo;
+        }
+    }
+
     public T base() throws Exception {
         if (!estaVacia()) {
             elementos<T> tem = this.inicio;
@@ -144,7 +186,7 @@ public class Listas<T> {
             }
             return (T) tem.getDato();
         } else {
-            throw new Exception("Pila Vacia");
+            throw new Exception("Lista Vacia");
         }
     }
 
@@ -153,7 +195,7 @@ public class Listas<T> {
             elementos<T> element = null;
             elementos<T> temp = this.inicio;
             for (int i = 0; i < this.tamanio(); i++) {
-                
+
                 if (indice == temp.getIndice()) {
                     element = temp;
                 }
@@ -167,5 +209,27 @@ public class Listas<T> {
             throw new Exception("La lista esta vacia!");
         }
     }
+    //Capturar indice de un arraylist
 
+    public int get(int index) {
+        return index;
+    }
+
+    public Object EliminarNodo(int index) {
+        Nodo temporal = cabeza;
+        if (index == 0) {
+            cabeza = cabeza.obtenerSiguiente();
+        } else {
+            int contador = 0;
+
+            while (contador < index - 1) {
+                temporal = temporal.obtenerSiguiente();
+                contador++;
+            }
+            temporal.enlazarSiguiente(temporal.obtenerSiguiente().obtenerSiguiente());
+        }
+
+        tamanio--;
+        return temporal.toString();
+    }
 }
